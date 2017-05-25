@@ -16,28 +16,28 @@
  */
 
 BinaryTree* create_empty_tree() {
-    
+
     BinaryTree *tree;
     tree = (BinaryTree*) malloc(sizeof (BinaryTree));
-    
+
     strlcpy(tree->info, STRINGDEFAULT, MAXLENGTH);
 
     tree->left = NULL;
     tree->rigth = NULL;
-    
+
     return tree;
 }
 
 BinaryTree* create_tree(BinaryTree* left, char* content, BinaryTree * right) {
-    
+
     BinaryTree *tree_root;
     tree_root = create_empty_tree();
-    
-    strlcpy(tree_root->info, STRINGDEFAULT, content);
+
+    strlcpy(tree_root->info, content, MAXLENGTH);
 
     tree_root->left = left;
     tree_root->rigth = right;
-    
+
     return tree_root;
 }
 
@@ -62,19 +62,59 @@ int is_empty(BinaryTree * tree) {
 }
 
 void print_tree(BinaryTree * tree) {
-    if (is_empty(tree)) {
+    int prof = 0;
+    print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(tree, prof);
+}
+
+void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof) {
+    int i;
+
+    for (i = 0; i < prof; i++) {
+        printf("\t");
+    }
+
+    if (tree->left == NULL && tree->rigth == NULL) {
+
+        printf("Le recomendamos %s. \n", tree->info);
         return;
-    } else { 
-        printf("%s", tree->info);
-        printf("Yes \n");
-        print_tree(left_tree(tree));
-        printf("No \n");
-        print_tree(right_tree(tree));
+    } else {
+        prof++;
+        printf("Resposta a la pregunta %s: Yes \n", tree->info);
+        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(left_tree(tree), prof);
+        
+        prof--;
+        for (i = 0; i < prof; i++) {
+        printf("\t");
+    }
+
+        printf("Resposta a la pregunta %s: No \n\t", tree->info);
+        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(right_tree(tree), prof);
     }
 }
 
 BinaryTree* create_example1() {
+    BinaryTree *left, *right, *root, *root2;
 
+    left = create_tree(NULL, TREE1_8, NULL);
+    right = create_tree(NULL, TREE1_9, NULL);
+    root = create_tree(left, TREE1_3, right);
+
+    right = create_tree(NULL, TREE1_10, NULL);
+    root = create_tree(root, TREE1_2, right);
+
+    left = create_tree(NULL, TREE1_11, NULL);
+    right = create_tree(NULL, TREE1_12, NULL);
+    root2 = create_tree(left, TREE1_5, right);
+
+    left = create_tree(NULL, TREE1_13, NULL);
+    right = create_tree(NULL, TREE1_14, NULL);
+    right = create_tree(left, TREE1_6, right);
+
+    root2 = create_tree(root2, TREE1_4, right);
+
+    root = create_tree(root, TREE1_1, root2);
+
+    return root;
 }
 
 BinaryTree* create_example2() {

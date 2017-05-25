@@ -15,8 +15,11 @@
  */
 int main(int argc, char** argv) {
     
-create_tree(NULL, "Yolo", NULL);
-
+    BinaryTree *tree;
+    tree = create_example1();
+    
+    print_tree(tree);
+    
     return (EXIT_SUCCESS);
 }
 
