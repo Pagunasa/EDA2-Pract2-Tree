@@ -7,6 +7,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #include "BINARYTREE_H.h"
 
@@ -15,20 +16,28 @@
  */
 
 BinaryTree* create_empty_tree() {
+    
     BinaryTree *tree;
     tree = (BinaryTree*) malloc(sizeof (BinaryTree));
-    tree->info = STRINGDEFAULT;
+    
+    strlcpy(tree->info, STRINGDEFAULT, MAXLENGTH);
+
     tree->left = NULL;
     tree->rigth = NULL;
+    
     return tree;
 }
 
 BinaryTree* create_tree(BinaryTree* left, char* content, BinaryTree * right) {
+    
     BinaryTree *tree_root;
     tree_root = create_empty_tree();
-    tree_root->info = content;
+    
+    strlcpy(tree_root->info, STRINGDEFAULT, content);
+
     tree_root->left = left;
     tree_root->rigth = right;
+    
     return tree_root;
 }
 
@@ -57,7 +66,9 @@ void print_tree(BinaryTree * tree) {
         return;
     } else { 
         printf("%s", tree->info);
+        printf("Yes \n");
         print_tree(left_tree(tree));
+        printf("No \n");
         print_tree(right_tree(tree));
     }
 }

@@ -4,6 +4,7 @@
  *
  * Created on 25 de mayo de 2017, 13:01
  */
+#include "constants.h"
 
 #ifndef BINARYTREE_H_H
 #define	BINARYTREE_H_H

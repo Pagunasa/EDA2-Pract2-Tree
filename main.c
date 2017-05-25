@@ -8,10 +8,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "BINARYTREE_H.h"
+
 /*
  * 
  */
 int main(int argc, char** argv) {
+    
+create_tree(NULL, "Yolo", NULL);
 
     return (EXIT_SUCCESS);
 }
