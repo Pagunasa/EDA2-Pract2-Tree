@@ -19,7 +19,7 @@ int main(int argc, char** argv) {
     tree = create_example1();
     
     print_tree(tree);
-    
+
     return (EXIT_SUCCESS);
 }
 

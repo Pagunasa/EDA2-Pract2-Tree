@@ -69,26 +69,32 @@ void print_tree(BinaryTree * tree) {
 void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof) {
     int i;
 
+
     for (i = 0; i < prof; i++) {
         printf("\t");
     }
 
     if (tree->left == NULL && tree->rigth == NULL) {
+        printf("%i", prof);
 
         printf("Le recomendamos %s. \n", tree->info);
         return;
     } else {
         prof++;
+        printf("%i", prof);
         printf("Resposta a la pregunta %s: Yes \n", tree->info);
         print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(left_tree(tree), prof);
-        
-        prof--;
-        for (i = 0; i < prof; i++) {
-        printf("\t");
-    }
 
+        if (prof > 0) {
+            prof--;
+        }
+        for (i = 0; i < prof; i++) {
+            printf("\t");
+        }
+        
+        printf("%i", prof);
         printf("Resposta a la pregunta %s: No \n\t", tree->info);
-        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(right_tree(tree), prof);
+        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(right_tree(tree), prof++);
     }
 }
 
@@ -118,5 +124,29 @@ BinaryTree* create_example1() {
 }
 
 BinaryTree* create_example2() {
+    BinaryTree *left, *right, *root, *root2;
 
+    left = create_tree(NULL, TREE2_10, NULL);
+    right = create_tree(NULL, TREE2_15, NULL);
+    root = create_tree(left, TREE2_8, right);
+
+    left = create_tree(NULL, TREE2_9, NULL);
+    root = create_tree(left, TREE2_4, root);
+
+    left = create_tree(NULL, TREE2_13, NULL);
+    right = create_tree(NULL, TREE2_14, NULL);
+    root2 = create_tree(left, TREE2_3, right);
+
+    left = create_tree(NULL, TREE2_14, NULL);
+    right = create_tree(NULL, TREE2_12, NULL);
+
+    right = create_tree(left, TREE2_4, right);
+    left = create_tree(NULL, TREE2_11, NULL);
+    right = create_tree(left, TREE2_5, right);
+
+    root2 = create_tree(root2, TREE2_2, right);
+
+    root = create_tree(root, TREE1_1, root2);
+
+    return root;
 }
