@@ -63,17 +63,22 @@ int is_empty(BinaryTree * tree) {
 
 void print_tree(BinaryTree * tree) {
     int prof = 0;
-    print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(tree, prof);
+    if (is_empty(tree) == FALSE) {
+        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(tree, prof);
+    } else {
+        printf(COLOR_RED STR_EMPTY_TREE COLOR_RESET);
+    }
 }
 
 //el problema de las tabulaciones era pk habia una /t al final de la 2ª llamada recurs
+
 void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof) {
     int i;
-    
+
     for (i = 0; i < prof; i++) {
         printf("\t");
     }
-    
+
     if (tree->left == NULL && tree->rigth == NULL) {
         printf(STR_SGST, tree->info);
         return;
@@ -88,15 +93,34 @@ void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, in
         for (i = 0; i < prof; i++) {
             printf("\t");
         }
-  
+
         printf(STR_ANSN, tree->info);
         prof++;
         print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(right_tree(tree), prof++);
     }
 }
 
-void print_manual_tree(BinaryTree* tree){
-    
+void print_manual_tree(BinaryTree* tree) {
+    char option[MAXLENGTH3];
+    if (is_empty(tree) == FALSE) {
+        while ((tree->left != NULL && tree->rigth != NULL)) {
+            printf(tree->info);
+            printf(" (yes or no) ");
+            while (!scanf("%s", &option) ||
+                    strcmp(option, STR_YES) != 0
+                    && strcmp(option, STR_NO) != 0) dump_line_error(stdin);
+            dump_line(stdin);
+            if(strcmp(option, STR_YES) == 0){
+                tree = left_tree(tree);
+            }else if(strcmp(option, STR_NO) == 0){
+                tree = right_tree(tree);
+            }
+        }
+        printf(tree->info);
+        printf(STR_JUMP);
+    } else {
+        printf(COLOR_RED STR_EMPTY_TREE COLOR_RESET);
+    }
 }
 
 BinaryTree* create_example1() {
@@ -147,14 +171,13 @@ BinaryTree* create_example2() {
 
     root2 = create_tree(root2, TREE2_2, right);
 
-    root = create_tree(root, TREE1_1, root2);
+    root = create_tree(root, TREE2_1, root2);
 
     return root;
 }
 
 void dump_line(FILE * fp) {//funcio per evitar el borrat de inputs
     int ch;
-
     while ((ch = fgetc(fp)) != EOF && ch != '\n');
 }
 

@@ -10,6 +10,7 @@
 
 #define MAXLENGTH 150
 #define LENGTH15 15
+#define MAXLENGTH3 3
 
 #define STRINGDEFAULT "Default"
 #define STRINGROOT "root"
@@ -31,6 +32,9 @@
 #define STR_ANSN "If the answerd to the question *%s* is: No \n"
 #define STR_THNK "Thanks for use Overlord"
 #define STR_ERR_INPUT "Error: Not valid input\n"
+#define STR_EMPTY_TREE "Error: This tree is empty"
+#define STR_YES "yes"
+#define STR_NO "no"
 
 //Menu
 #define STR_ENTOP "Enter an option: \n"
@@ -41,6 +45,7 @@
 #define STR_LDTRE "\t 5 - Load a saved tree \n"
 #define STR_EXIT "\t 0 - Exit of Overlord \n"
 #define STR_NTVA "Not valid option \n"
+#define STR_JUMP "\n\n"
 
 //Options
 #define MTAUTO 1

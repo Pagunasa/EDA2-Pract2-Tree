@@ -28,15 +28,15 @@ void menu() {
     BinaryTree *tree;
 
     do {
-        
-            printf(STR_ENTOP);
-            printf(STR_EX1AUTO);
-            printf(STR_EX2AUTO);
-            printf(STR_EX1MN);
-            printf(STR_EX2MN);
-            printf(STR_LDTRE);
-            printf(STR_EXIT);
+        printf(STR_ENTOP);
+        printf(STR_EX1AUTO);
+        printf(STR_EX2AUTO);
+        printf(STR_EX1MN);
+        printf(STR_EX2MN);
+        printf(STR_LDTRE);
+        printf(STR_EXIT);
         while (!scanf("%d", &option)) dump_line_error(stdin);
+        dump_line(stdin);
 
         switch (option) {
             case MTAUTO:
@@ -49,11 +49,11 @@ void menu() {
                 break;
             case MTMANU:
                 tree = create_example1();
-                print_manual_tree(BinaryTree* tree);
+                print_manual_tree(tree);
                 break;
             case FTMANU:
                 tree = create_example2();
-                print_manual_tree(BinaryTree* tree);
+                print_manual_tree(tree);
                 break;
             case LDTRIF:
                 break;
