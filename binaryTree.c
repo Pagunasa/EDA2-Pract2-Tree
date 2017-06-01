@@ -66,23 +66,20 @@ void print_tree(BinaryTree * tree) {
     print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(tree, prof);
 }
 
+//el problema de las tabulaciones era pk habia una /t al final de la 2ª llamada recurs
 void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof) {
     int i;
-
-
+    
     for (i = 0; i < prof; i++) {
         printf("\t");
     }
-
+    
     if (tree->left == NULL && tree->rigth == NULL) {
-        printf("%i", prof);
-
-        printf("Le recomendamos %s. \n", tree->info);
+        printf(STR_SGST, tree->info);
         return;
     } else {
         prof++;
-        printf("%i", prof);
-        printf("Resposta a la pregunta %s: Yes \n", tree->info);
+        printf(STR_ANSY, tree->info);
         print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(left_tree(tree), prof);
 
         if (prof > 0) {
@@ -91,11 +88,15 @@ void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, in
         for (i = 0; i < prof; i++) {
             printf("\t");
         }
-        
-        printf("%i", prof);
-        printf("Resposta a la pregunta %s: No \n\t", tree->info);
+  
+        printf(STR_ANSN, tree->info);
+        prof++;
         print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(right_tree(tree), prof++);
     }
+}
+
+void print_manual_tree(BinaryTree* tree){
+    
 }
 
 BinaryTree* create_example1() {
@@ -149,4 +150,15 @@ BinaryTree* create_example2() {
     root = create_tree(root, TREE1_1, root2);
 
     return root;
+}
+
+void dump_line(FILE * fp) {//funcio per evitar el borrat de inputs
+    int ch;
+
+    while ((ch = fgetc(fp)) != EOF && ch != '\n');
+}
+
+void dump_line_error(FILE * fp) {// creida dump_line i imprimeix error per pantalla
+    printf(COLOR_RED STR_ERR_INPUT COLOR_RESET);
+    dump_line(fp);
 }

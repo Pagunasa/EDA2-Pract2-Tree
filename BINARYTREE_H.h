@@ -27,8 +27,11 @@ void print_tree(BinaryTree* tree);
 BinaryTree* create_example1();
 BinaryTree* create_example2();
 
-void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof);
+BinaryTree* create_tree_from_string(char* strTree);
 
-//BinaryTree* create_tree_from_string(char* strTree);
+void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof);
+void dump_line(FILE * fp);
+void dump_line_error(FILE * fp);
+void print_manual_tree(BinaryTree* tree);
 #endif	/* BINARYTREE_H_H */
 
