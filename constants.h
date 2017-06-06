@@ -86,6 +86,9 @@
 #define TREE2_14 "Watch La La Land"
 #define TREE2_15 "Watch Back to Future"
 
+//create_tree_from_string
+#define STRG_OPEN '('
+#define STRG_CLOSE ')'
 
 
 #endif	/* CONSTANTS_H */

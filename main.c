@@ -56,6 +56,7 @@ void menu() {
                 print_manual_tree(tree);
                 break;
             case LDTRIF:
+                create_tree_from_string("(A (B R1 (C R2 R3)) R4)");
                 break;
             case EXITOV:
                 printf(STR_THNK);

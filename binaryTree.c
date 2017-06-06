@@ -123,6 +123,15 @@ void print_manual_tree(BinaryTree* tree) {
     }
 }
 
+BinaryTree* create_tree_from_string(char* strTree){
+    int j=0;
+    while (strTree[j] != '\0'){
+        if(strTree[j] == STRG_OPEN){
+            
+        }
+    }
+}
+
 BinaryTree* create_example1() {
     BinaryTree *left, *right, *root, *root2;
 
