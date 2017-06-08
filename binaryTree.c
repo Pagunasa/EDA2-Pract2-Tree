@@ -246,6 +246,9 @@ char *chose_tence2(int num) {
             return TREE2_13;
         case 14:
             return TREE2_14;
+        case 15:
+            return TREE2_15;
+            break;
         default:
             return "ERROR";
     }
@@ -254,11 +257,15 @@ char *chose_tence2(int num) {
 char*hash(char A, int num, int type) {
     if (A == 'R') {
         num += 8;
+        if (type == TRUE) {
+            num -= 1;
+        }
     } else {
         num = A - 64;
     }
 
     if (type == TRUE) {
+
         return chose_tence1(num);
     }
     if (type == FALSE) {

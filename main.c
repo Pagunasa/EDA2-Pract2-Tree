@@ -60,7 +60,7 @@ void menu() {
                 print_manual_tree(tree);
                 break;
             case MTFILE:
-                f = fopen("tree.txt", "r");
+                f = fopen("tree1.txt", "r");
                 if (f == NULL) {
                     printf("ERROR");
                 }
@@ -69,7 +69,7 @@ void menu() {
                 print_tree(tree);
                 break;
             case FTFILE:
-                f = fopen("tree.txt", "r");
+                f = fopen("tree2.txt", "r");
                 if (f == NULL) {
                     printf("ERROR");
                 }

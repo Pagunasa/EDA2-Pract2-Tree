@@ -1,0 +1,1 @@
+( A ( B ( C R1 R2 ) R3 ) ( D ( E R4 R5 ) F R6 R7 )
