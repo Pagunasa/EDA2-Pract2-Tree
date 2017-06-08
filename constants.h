@@ -42,7 +42,9 @@
 #define STR_EX2AUTO "\t 2 - Run automaticaly the films tree \n"
 #define STR_EX1MN "\t 3 - Run manually the food tree \n"
 #define STR_EX2MN "\t 4 - Run manually the films tree \n"
-#define STR_LDTRE "\t 5 - Load a saved tree \n"
+#define STR_EX1F "\t 5 - Run food tree from file\n"
+#define STR_EX2F "\t 6 - Run films tree from file\n"
+#define STR_LDTRE "\t 7 - Load a saved tree \n"
 #define STR_EXIT "\t 0 - Exit of Overlord \n"
 #define STR_NTVA "Not valid option \n"
 #define STR_JUMP "\n\n"
@@ -52,7 +54,9 @@
 #define FTAUTO 2
 #define MTMANU 3
 #define FTMANU 4
-#define LDTRIF 5
+#define MTFILE 5
+#define FTFILE 6
+#define LDTRIF 7
 #define EXITOV 0
 
 //TREE1

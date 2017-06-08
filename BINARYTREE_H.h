@@ -28,6 +28,11 @@ BinaryTree* create_example1();
 BinaryTree* create_example2();
 
 BinaryTree* create_tree_from_string(char* strTree);
+char *chose_tence1(int num);
+char *chose_tence2(int num);
+char*hash(char A, int num, int type);
+BinaryTree* create_from_file(FILE* f, int type);
+
 
 void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof);
 void dump_line(FILE * fp);

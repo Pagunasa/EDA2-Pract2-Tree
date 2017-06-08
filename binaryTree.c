@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   binaryTree.c
  * Author: U140172
  *
@@ -12,7 +12,7 @@
 #include "BINARYTREE_H.h"
 
 /*
- * 
+ *
  */
 
 BinaryTree* create_empty_tree() {
@@ -110,9 +110,9 @@ void print_manual_tree(BinaryTree* tree) {
                     strcmp(option, STR_YES) != 0
                     && strcmp(option, STR_NO) != 0) dump_line_error(stdin);
             dump_line(stdin);
-            if(strcmp(option, STR_YES) == 0){
+            if (strcmp(option, STR_YES) == 0) {
                 tree = left_tree(tree);
-            }else if(strcmp(option, STR_NO) == 0){
+            } else if (strcmp(option, STR_NO) == 0) {
                 tree = right_tree(tree);
             }
         }
@@ -123,11 +123,11 @@ void print_manual_tree(BinaryTree* tree) {
     }
 }
 
-BinaryTree* create_tree_from_string(char* strTree){
-    int j=0;
-    while (strTree[j] != '\0'){
-        if(strTree[j] == STRG_OPEN){
-            
+BinaryTree* create_tree_from_string(char* strTree) {
+    int j = 0;
+    while (strTree[j] != '\0') {
+        if (strTree[j] == STRG_OPEN) {
+
         }
     }
 }
@@ -183,6 +183,121 @@ BinaryTree* create_example2() {
     root = create_tree(root, TREE2_1, root2);
 
     return root;
+}
+
+char *chose_tence1(int num) {
+    switch (num) {
+        case 1:
+            return TREE1_1;
+        case 2:
+            return TREE1_2;
+        case 3:
+            return TREE1_3;
+        case 4:
+            return TREE1_4;
+        case 5:
+            return TREE1_5;
+        case 6:
+            return TREE1_6;
+        case 8:
+            return TREE1_8;
+        case 9:
+            return TREE1_9;
+        case 10:
+            return TREE1_10;
+        case 11:
+            return TREE1_11;
+        case 12:
+            return TREE1_12;
+        case 13:
+            return TREE1_13;
+        case 14:
+            return TREE1_14;
+        default:
+            return "ERROR";
+    }
+}
+
+char *chose_tence2(int num) {
+    switch (num) {
+        case 1:
+            return TREE2_1;
+        case 2:
+            return TREE2_2;
+        case 3:
+            return TREE2_3;
+        case 4:
+            return TREE2_4;
+        case 5:
+            return TREE2_5;
+        case 6:
+            return TREE2_6;
+        case 8:
+            return TREE2_8;
+        case 9:
+            return TREE2_9;
+        case 10:
+            return TREE2_10;
+        case 11:
+            return TREE2_11;
+        case 12:
+            return TREE2_12;
+        case 13:
+            return TREE2_13;
+        case 14:
+            return TREE2_14;
+        default:
+            return "ERROR";
+    }
+}
+
+char*hash(char A, int num, int type) {
+    if (A == 'R') {
+        num += 8;
+    } else {
+        num = A - 64;
+    }
+
+    if (type == TRUE) {
+        return chose_tence1(num);
+    }
+    if (type == FALSE) {
+        return chose_tence2(num);
+    }
+}
+
+BinaryTree* create_from_file(FILE* f, int type) {
+
+    BinaryTree *left, *right, *root;
+    int num;
+    char* str, A;
+    fscanf(f, "%s", str);
+    sscanf(str, "%c%d", &A, &num);
+    if (A == '(' || A == ')') {
+        return create_from_file(f, type);
+    }
+    if (A == 'R') {
+        if (type == TRUE) {
+            root = create_tree(NULL, hash(A, num, TRUE), NULL);
+            return root;
+        }
+        if (type == FALSE) {
+            root = create_tree(NULL, hash(A, num, FALSE), NULL);
+            return root;
+        }
+    } else if (A > 64 && A < 91) {
+        sscanf(str, "%c", &A);
+        left = create_from_file(f, type);
+        right = create_from_file(f, type);
+        if (type == TRUE) {
+            root = create_tree(left, hash(A, FALSE, TRUE), right);
+        }
+        if (type == FALSE) {
+            root = create_tree(left, hash(A, FALSE, FALSE), right);
+        }
+    }
+
+
 }
 
 void dump_line(FILE * fp) {//funcio per evitar el borrat de inputs
