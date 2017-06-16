@@ -65,13 +65,13 @@ int is_empty(BinaryTree * tree) {//mira si el node està buid
 void print_tree(BinaryTree * tree) {//imprimeix arbre
     int prof = 0; //profunditat del node a analitzar
     if (is_empty(tree) == FALSE) {
-        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(tree, prof); //imprimir tot l'arbre
+        print_tree_real(tree, prof); //imprimir tot l'arbre
     } else {
         printf(COLOR_RED STR_EMPTY_TREE COLOR_RESET);
     }
 }
 
-void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof) {//imprimiex tot l'arbre amb les seves preguntes i respostes
+void print_tree_real(BinaryTree * tree, int prof) {//imprimiex tot l'arbre amb les seves preguntes i respostes
     int i;
 
     for (i = 0; i < prof; i++) {// segons la profunditat en que estem fem més tabulacions
@@ -84,7 +84,7 @@ void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, in
     } else {
         prof++; //augmentem profunditat
         printf(STR_ANSY, tree->info); //imprimir pregunta si la resposta és si
-        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(left_tree(tree), prof);
+        print_tree_real(left_tree(tree), prof);
 
         //controlem profunitat per que no es produeixin errors
         if (prof > 0) {
@@ -96,7 +96,7 @@ void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, in
 
         printf(STR_ANSN, tree->info); //imprimim pregunta si la resposta és no
         prof++;
-        print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(right_tree(tree), prof++);
+        print_tree_real(right_tree(tree), prof++);
     }
 }
 

@@ -34,9 +34,10 @@ char*hash(char A, int num, int type);
 BinaryTree* create_from_file(FILE* f, int type);
 
 
-void print_tree_real_noFake_conMedicina_1LinkMega_UTorrent(BinaryTree * tree, int prof);
+void print_tree_real(BinaryTree * tree, int prof);
 void dump_line(FILE * fp);
 void dump_line_error(FILE * fp);
 void print_manual_tree(BinaryTree* tree);
+void menu();
 #endif	/* BINARYTREE_H_H */
 
